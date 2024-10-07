@@ -1,0 +1,31 @@
+---
+
+name: Release to test PyPI
+on: workflow_dispatch
+
+jobs:
+    build:
+        name: Build wheel and release
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: checkout repository
+            uses: actions/checkout@v4
+
+          - name: set up Python
+            uses: actions/setup-python@v5
+            with:
+              python-version: 3.12
+
+          - name: Install dependencies
+            run: python3 -m pip install flit wheel
+
+          - name: Build the package
+            run: flit build
+
+          - name: Release to test PyPI
+            uses: pypa/gh-action-pypi-publish@release/v1
+
+
+
+
