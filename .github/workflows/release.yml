@@ -28,4 +28,4 @@ jobs:
           - name: Release to test PyPI
             uses: pypa/gh-action-pypi-publish@release/v1
             with:
-                repository-url: https://test.pypi.org/project/practrusted
+                repository-url: https://test.pypi.org/project/practrusted/
